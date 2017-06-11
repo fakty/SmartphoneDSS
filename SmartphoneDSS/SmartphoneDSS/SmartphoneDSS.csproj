@@ -62,12 +62,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Database\KnowledgeBase.cs" />
+    <Compile Include="Database\Filter\Filter.cs" />
+    <Compile Include="Database\Filter\SmartphoneFilter.cs" />
+    <Compile Include="Database\Utilities\KnowledgeBase.cs" />
     <Compile Include="Database\Models\Formula.cs" />
     <Compile Include="Database\Models\InputFormula.cs" />
     <Compile Include="Database\Models\OutputFormula.cs" />
     <Compile Include="Database\Models\Smartphone.cs" />
-    <Compile Include="Database\SmartphoneReader.cs" />
+    <Compile Include="Database\Utilities\SmartphoneReader.cs" />
+    <Compile Include="Database\Utilities\SmartphoneInterpreter.cs" />
+    <Compile Include="Exceptions\EmptyListException.cs" />
     <Compile Include="GUI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartphoneDSS.Database
+namespace SmartphoneDSS.Database.Models
 {
-    class Formula
+    abstract class Formula
     {
         public String Name { get; }
 

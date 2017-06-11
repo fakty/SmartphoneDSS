@@ -11,30 +11,30 @@ namespace SmartphoneDSS.Database.Models
         private static readonly int FORMULAS_COUNT = 19;
 
         //Formuły wejściowe
-        private static readonly String alfa0 = "smartfon ma więcej niż 2GB RAMu";
-        private static readonly String alfa1 = "bateria powyżej 3300 mAh";
-        private static readonly String alfa2 = "matryca ma przekątną większą lub równą 5,5 cala";
-        private static readonly String alfa3 = "rozdzielczość nie mniejszą niż Full HD";
-        private static readonly String alfa4 = "smartfon posiada ekran z hartowanego szkła";
-        private static readonly String alfa5 = "telefon powinien mieć aparat >= 13 Mpx";
-        private static readonly String alfa6 = "smartfon powinien obsługiwać LTE";
-        private static readonly String alfa7 = "maksymalny czas rozmów co najmniej 20h";
-        private static readonly String alfa8 = "smartfon powinien mieć funkcję szybkiego ładowania";
-        private static readonly String alfa9 = "smartfon ma pamięć wewnętrzną większą niż 16GB";
-        private static readonly String alfa10 = "smartfon ma slot na kartę SD";
+        public static readonly String alfa0 = "smartfon ma 2GB RAMu lub więcej";
+        public static readonly String alfa1 = "bateria powyżej 3300 mAh";
+        public static readonly String alfa2 = "matryca ma przekątną większą lub równą 5,5 cala";
+        public static readonly String alfa3 = "rozdzielczość nie mniejszą niż Full HD";
+        public static readonly String alfa4 = "smartfon posiada ekran z hartowanego szkła";
+        public static readonly String alfa5 = "telefon powinien mieć aparat >= 13 Mpx";
+        public static readonly String alfa6 = "smartfon powinien obsługiwać LTE";
+        public static readonly String alfa7 = "maksymalny czas rozmów co najmniej 20h";
+        public static readonly String alfa8 = "smartfon powinien mieć funkcję szybkiego ładowania";
+        public static readonly String alfa9 = "smartfon ma pamięć wewnętrzną większą niż 16GB";
+        public static readonly String alfa10 = "smartfon ma slot na kartę SD";
 
         //Formuły wyjściowe
-        private static readonly String alfa11 = "osoba intensywnie używa telefonu więcej niż 15h tygodniowo";
-        private static readonly String alfa12 = "urządzenie upada częściej niż 4 razy w miesiącu";
-        private static readonly String alfa13 = "osoba robi zdjęcia więcej niż 100 razy w miesiącu";
-        private static readonly String alfa14 = "osoba chce oglądać filmy online";
-        private static readonly String alfa15 = "osoba chce słuchać muzyki online";
-        private static readonly String alfa16 = "osoba rozmawia co najmniej 5 godzin dziennie";
-        private static readonly String alfa17 = "osoba używa telefonu jako odtwarzacza MP3";
-        private static readonly String alfa18 = "osoba czyta na telefonie więcej niż 15h tygodniowo";
+        public static readonly String alfa11 = "osoba intensywnie używa telefonu więcej niż 15h tygodniowo";
+        public static readonly String alfa12 = "urządzenie upada częściej niż 4 razy w miesiącu";
+        public static readonly String alfa13 = "osoba robi zdjęcia więcej niż 100 razy w miesiącu";
+        public static readonly String alfa14 = "osoba chce oglądać filmy online";
+        public static readonly String alfa15 = "osoba chce słuchać muzyki online";
+        public static readonly String alfa16 = "osoba rozmawia co najmniej 5 godzin dziennie";
+        public static readonly String alfa17 = "osoba używa telefonu jako odtwarzacza MP3";
+        public static readonly String alfa18 = "osoba czyta na telefonie więcej niż 15h tygodniowo";
 
 
-        private static List<Formula> Formulas = new List<Formula>(FORMULAS_COUNT){
+        private readonly List<Formula> Formulas = new List<Formula>(FORMULAS_COUNT){
             new InputFormula(alfa0),
             new InputFormula(alfa1),
             new InputFormula(alfa2),
@@ -56,12 +56,22 @@ namespace SmartphoneDSS.Database.Models
             new OutputFormula(alfa18)
         };
 
+        public List<InputFormula> GetInputFormulas()
+        {
+            return Formulas.OfType<InputFormula>().ToList();
+        }
+
+        public List<OutputFormula> GetOutputFormulas()
+        {
+            return Formulas.OfType<OutputFormula>().ToList();
+        }
+
         public List<Formula> GetFormulas()
         {
             return Formulas;
         }
 
-        private bool Implication(bool A, bool B)
+        private static bool Implication(bool A, bool B)
         {
             if (A)
                 return B;
