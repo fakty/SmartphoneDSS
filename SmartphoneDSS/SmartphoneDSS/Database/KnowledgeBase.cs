@@ -16,7 +16,7 @@ namespace SmartphoneDSS.Database.Models
         private static readonly String alfa2 = "matryca ma przekątną większą lub równą 5,5 cala";
         private static readonly String alfa3 = "rozdzielczość nie mniejszą niż Full HD";
         private static readonly String alfa4 = "smartfon posiada ekran z hartowanego szkła";
-        private static readonly String alfa5 = "telefon powinien mieć aparat >13 Mpx";
+        private static readonly String alfa5 = "telefon powinien mieć aparat >= 13 Mpx";
         private static readonly String alfa6 = "smartfon powinien obsługiwać LTE";
         private static readonly String alfa7 = "maksymalny czas rozmów co najmniej 20h";
         private static readonly String alfa8 = "smartfon powinien mieć funkcję szybkiego ładowania";
@@ -88,7 +88,7 @@ namespace SmartphoneDSS.Database.Models
             return Implication(formulas[12].Value, formulas[4].Value);
         }
 
-        //Jeżeli osoba robi zdjęcia więcej niż 100 razy w miesiącu, to telefon powinien mieć aparat >13 Mpx
+        //Jeżeli osoba robi zdjęcia więcej niż 100 razy w miesiącu, to telefon powinien mieć aparat >= 13 Mpx
         public bool Fact4(List<Formula> formulas)
         {
             return Implication(formulas[13].Value, formulas[5].Value);
