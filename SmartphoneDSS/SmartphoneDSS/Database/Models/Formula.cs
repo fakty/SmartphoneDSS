@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartphoneDSS.Database
+namespace SmartphoneDSS.Database.Models
 {
-    class Formula
+    class Formula : IEquatable<Formula>
     {
         public String Name { get; }
 
@@ -15,6 +15,11 @@ namespace SmartphoneDSS.Database
         public Formula(String name)
         {
             this.Name = name;
+        }
+
+        public bool Equals(Formula other)
+        {
+            return Name.Equals(other.Name) && Value == other.Value;
         }
     }
 }
