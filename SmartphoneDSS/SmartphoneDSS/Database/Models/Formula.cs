@@ -10,7 +10,7 @@ namespace SmartphoneDSS.Database
     {
         public String Name { get; }
 
-        public bool Value { get; set; }
+        public bool Value { get; set; } = false;
 
         public Formula(String name)
         {

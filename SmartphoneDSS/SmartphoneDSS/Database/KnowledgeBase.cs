@@ -8,7 +8,7 @@ namespace SmartphoneDSS.Database.Models
 {
     class KnowledgeBase
     {
-        private static readonly int FORMULAS_COUNT = 18;
+        private static readonly int FORMULAS_COUNT = 19;
 
         //Formuły wejściowe
         private static readonly String alfa0 = "smartfon ma więcej niż 2GB RAMu";
@@ -56,12 +56,12 @@ namespace SmartphoneDSS.Database.Models
             new OutputFormula(alfa18)
         };
 
-        public List<Formula> getFormulas()
+        public List<Formula> GetFormulas()
         {
             return Formulas;
         }
 
-        private bool implication(bool A, bool B)
+        private bool Implication(bool A, bool B)
         {
             if (A)
                 return B;
@@ -72,44 +72,44 @@ namespace SmartphoneDSS.Database.Models
         //Jeżeli osoba używa intensywnie telefonu więcej niż 15h tygodniowo to smartfon ma mieć >2GB RAMu i baterię powyżej 3300 mAh
         public bool Fact1(List<Formula> formulas)
         {
-            return implication(formulas[11].Value, formulas[0].Value && formulas[1].Value);
+            return Implication(formulas[11].Value, formulas[0].Value && formulas[1].Value);
         }
 
         //Jeżeli osoba spędza na czytaniu na urządzeniu mobilnym więcej niż 15h tygodniowo
         //to matryca powinna mieć przekątną większą lub równą 5,5 cala i rozdzielczość nie mniejszą niż Full HD i baterię powyżej 3300 mAh
         public bool Fact2(List<Formula> formulas)
         {
-            return implication(formulas[18].Value, formulas[2].Value && formulas[3].Value && formulas[1].Value);
+            return Implication(formulas[18].Value, formulas[2].Value && formulas[3].Value && formulas[1].Value);
         }
 
         //Jeżeli urządzenie upada częściej niż 4 razy w miesiącu to powinno mieć ekran z hartowanego szkła
         public bool Fact3(List<Formula> formulas)
         {
-            return implication(formulas[12].Value, formulas[4].Value);
+            return Implication(formulas[12].Value, formulas[4].Value);
         }
 
         //Jeżeli osoba robi zdjęcia więcej niż 100 razy w miesiącu, to telefon powinien mieć aparat >13 Mpx
         public bool Fact4(List<Formula> formulas)
         {
-            return implication(formulas[13].Value, formulas[5].Value);
+            return Implication(formulas[13].Value, formulas[5].Value);
         }
 
         //Jeśli osoba chce oglądać filmy online lub słuchać muzyki online to smartfon powinien obsługiwać LTE
         public bool Fact5(List<Formula> formulas)
         {
-            return implication(formulas[14].Value || formulas[15].Value, formulas[6].Value);
+            return Implication(formulas[14].Value || formulas[15].Value, formulas[6].Value);
         }
 
         //Jeżeli osoba rozmawia co najmniej 5 godzin dziennie smartfon powinien mieć maksymalny czas rozmów co najmniej 20h i funkcję szybkiego ładowania
         public bool Fact6(List<Formula> formulas)
         {
-            return implication(formulas[16].Value, formulas[7].Value && formulas[8].Value);
+            return Implication(formulas[16].Value, formulas[7].Value && formulas[8].Value);
         }
 
         //Jeżeli osoba używa telefonu jako odtwarzacza MP3 to powinna mieć pamięć wewnętrzną większą niż 16GB lub slot na kartę SD
         public bool Fact7(List<Formula> formulas)
         {
-            return implication(formulas[17].Value, formulas[9].Value && formulas[10].Value);
+            return Implication(formulas[17].Value, formulas[9].Value && formulas[10].Value);
         }
     }
 }
