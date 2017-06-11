@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartphoneDSS.Database.Models
 {
-    class Formula : IEquatable<Formula>
+    abstract class Formula
     {
         public String Name { get; }
 
@@ -15,11 +15,6 @@ namespace SmartphoneDSS.Database.Models
         public Formula(String name)
         {
             this.Name = name;
-        }
-
-        public bool Equals(Formula other)
-        {
-            return Name.Equals(other.Name) && Value == other.Value;
         }
     }
 }

@@ -21,5 +21,59 @@ namespace SmartphoneDSS.Database.Models
         public int InternalMemory { get; set; }
         public bool HasExternalSlot { get; set; }
         public float Price { get; set; }
+
+        public static bool operator <=(Smartphone toComparePhone, Smartphone basePhone)
+        {
+            if (basePhone == null || toComparePhone == null)
+            {
+                return false;
+            }
+            return (
+               toComparePhone.RAM <= basePhone.RAM &&
+               toComparePhone.BatteryCapacity <= basePhone.BatteryCapacity &&
+               toComparePhone.ScreenSize <= basePhone.ScreenSize &&
+               Convert.ToInt32(toComparePhone.IsFullHD) <= Convert.ToInt32(basePhone.IsFullHD) &&
+                Convert.ToInt32(toComparePhone.HasToughenedGlass) <= Convert.ToInt32(basePhone.HasToughenedGlass) &&
+                toComparePhone.Camera <= basePhone.Camera &&
+                Convert.ToInt32(toComparePhone.HasLTE) <= Convert.ToInt32(basePhone.HasLTE) &&
+                toComparePhone.MaxConversationTime <= basePhone.MaxConversationTime &&
+                Convert.ToInt32(toComparePhone.HasFastCharging) <= Convert.ToInt32(basePhone.HasFastCharging) &&
+                toComparePhone.InternalMemory <= basePhone.InternalMemory &&
+                Convert.ToInt32(toComparePhone.HasExternalSlot) <= Convert.ToInt32(basePhone.HasExternalSlot) &&
+                toComparePhone.Price <= basePhone.Price);
+        }
+
+        public static bool operator >=(Smartphone toComparePhone, Smartphone basePhone)
+        {
+            if (basePhone == null || toComparePhone == null)
+            {
+                return false;
+            }
+            return (
+               toComparePhone.RAM >= basePhone.RAM &&
+               toComparePhone.BatteryCapacity >= basePhone.BatteryCapacity &&
+               toComparePhone.ScreenSize >= basePhone.ScreenSize &&
+               Convert.ToInt32(toComparePhone.IsFullHD) >= Convert.ToInt32(basePhone.IsFullHD) &&
+                Convert.ToInt32(toComparePhone.HasToughenedGlass) >= Convert.ToInt32(basePhone.HasToughenedGlass) &&
+                toComparePhone.Camera >= basePhone.Camera &&
+                Convert.ToInt32(toComparePhone.HasLTE) >= Convert.ToInt32(basePhone.HasLTE) &&
+                toComparePhone.MaxConversationTime >= basePhone.MaxConversationTime &&
+                Convert.ToInt32(toComparePhone.HasFastCharging) >= Convert.ToInt32(basePhone.HasFastCharging) &&
+                toComparePhone.InternalMemory >= basePhone.InternalMemory &&
+                Convert.ToInt32(toComparePhone.HasExternalSlot) >= Convert.ToInt32(basePhone.HasExternalSlot) &&
+                toComparePhone.Price >= basePhone.Price);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (this != null && obj != null)
+            {
+                return this.Name == (obj as Smartphone).Name;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
