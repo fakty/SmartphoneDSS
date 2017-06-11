@@ -66,6 +66,8 @@
     <Compile Include="Database\Models\Formula.cs" />
     <Compile Include="Database\Models\InputFormula.cs" />
     <Compile Include="Database\Models\OutputFormula.cs" />
+    <Compile Include="Database\Models\Smartphone.cs" />
+    <Compile Include="Database\SmartphoneReader.cs" />
     <Compile Include="GUI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
