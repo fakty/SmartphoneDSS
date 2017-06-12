@@ -40,7 +40,7 @@ namespace SmartphoneDSS.Logic
                                             var result = new List<OutputFormula>(8);
                                             for (var j = 11; j < FormBase.GetFormulas().Count; j++)
                                             {
-                                                result.Add((OutputFormula)FormBase.GetFormulas()[j]);
+                                                result.Add(new OutputFormula((OutputFormula)FormBase.GetFormulas()[j]));
                                             }
                                             if (!ContainsSameItems(S, result))
                                             {
@@ -88,7 +88,7 @@ namespace SmartphoneDSS.Logic
                                             var result1 = new List<InputFormula>(11);
                                             for (var j = 0; j < 11; j++)
                                             {
-                                                result1.Add((InputFormula)FormBase.GetFormulas()[j]);
+                                                result1.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
                                             }
                                             if (!ContainsSameItems(S1, result1))
                                             {
@@ -99,7 +99,7 @@ namespace SmartphoneDSS.Logic
                                             var result2 = new List<InputFormula>(11);
                                             for (var j = 0; j < 11; j++)
                                             {
-                                                result2.Add((InputFormula)FormBase.GetFormulas()[j]);
+                                                result2.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
                                             }
                                             if (!ContainsSameItems(S2, result2))
                                             {

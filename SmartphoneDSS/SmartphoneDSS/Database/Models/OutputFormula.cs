@@ -11,5 +11,9 @@ namespace SmartphoneDSS.Database.Models
         public OutputFormula(String name) : base(name)
         {
         }
+
+        public OutputFormula(OutputFormula outF) : base(outF)
+        {
+        }
     }
 }

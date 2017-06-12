@@ -11,5 +11,9 @@ namespace SmartphoneDSS.Database.Models
         public InputFormula(string name) : base(name)
         {
         }
+
+        public InputFormula(InputFormula inF) : base(inF)
+        {
+        }
     }
 }

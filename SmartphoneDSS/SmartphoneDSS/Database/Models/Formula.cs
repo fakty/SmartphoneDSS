@@ -17,6 +17,12 @@ namespace SmartphoneDSS.Database.Models
             this.Name = name;
         }
 
+        public Formula(Formula f)
+        {
+            this.Name = f.Name;
+            this.Value = f.Value;
+        }
+
         public bool Equals(Formula other)
         {
             return this.Name.Equals(other.Name) && this.Value == other.Value;
