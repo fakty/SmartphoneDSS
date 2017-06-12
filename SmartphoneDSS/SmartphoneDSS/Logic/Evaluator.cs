@@ -42,7 +42,7 @@ namespace SmartphoneDSS.Logic
                                             {
                                                 result.Add(new OutputFormula((OutputFormula)FormBase.GetFormulas()[j]));
                                             }
-                                            if (!ContainsSameItems(S, result))
+                                            if (!ContainsSameItem(S, result))
                                             {
                                                 S.Add(result);
                                             }
@@ -90,7 +90,7 @@ namespace SmartphoneDSS.Logic
                                             {
                                                 result1.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
                                             }
-                                            if (!ContainsSameItems(S1, result1))
+                                            if (!ContainsSameItem(S1, result1))
                                             {
                                                 S1.Add(result1);
                                             }
@@ -101,7 +101,7 @@ namespace SmartphoneDSS.Logic
                                             {
                                                 result2.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
                                             }
-                                            if (!ContainsSameItems(S2, result2))
+                                            if (!ContainsSameItem(S2, result2))
                                             {
                                                 S2.Add(result2);
                                             }
@@ -117,15 +117,22 @@ namespace SmartphoneDSS.Logic
 
             if (S1.Count > 0 && S2.Count > 0)
             {
-                List<InputFormula> list;
+                List<InputFormula> factS1;
                 for(var id = S1.Count - 1; id >= 0; id--)
                 {
-                    list = S1[id];
-                    foreach (var elem in S2)
+                    factS1 = S1[id];
+                    var isSame = true;
+                    foreach (var factS2 in S2)
                     {
-                        if(!list.Except(elem).Any())
+                        isSame = true;
+                        for (var i = 0; i < factS1.Count; i++)
                         {
-                            S1.Remove(list);
+                            if (!factS1[i].Name.Equals(factS2[i].Name) || factS1[i].Value != factS2[i].Value) isSame = false;
+                        }
+                        if (isSame)
+                        {
+                            S1.Remove(factS1);
+                            break;
                         }
                     }
                 }
@@ -155,24 +162,36 @@ namespace SmartphoneDSS.Logic
             }
         }
 
-        private bool ContainsSameItems(List<List<OutputFormula>> list, List<OutputFormula> b)
+        private bool ContainsSameItem(List<List<OutputFormula>> listOfFacts, List<OutputFormula> newFact)
         {
-            if (list.Count == 0) return false;
-            foreach (var a in list)
+            if (listOfFacts.Count == 0) return false;
+            var isSame = true;
+            foreach (var fact in listOfFacts)
             {
-                if (a.Except(b).Any()) return false;
+                isSame = true;
+                for(var i = 0; i < fact.Count; i++)
+                {
+                    if (!fact[i].Name.Equals(newFact[i].Name) || fact[i].Value != newFact[i].Value) isSame = false;
+                }
+                if (isSame) return true;
             }
-            return true;
+            return false;
         }
 
-        private bool ContainsSameItems(List<List<InputFormula>> list, List<InputFormula> b)
+        private bool ContainsSameItem(List<List<InputFormula>> listOfFacts, List<InputFormula> newFact)
         {
-            if (list.Count == 0) return false;
-            foreach (var a in list)
+            if (listOfFacts.Count == 0) return false;
+            var isSame = true;
+            foreach (var fact in listOfFacts)
             {
-                if (a.Except(b).Any()) return false;
+                isSame = true;
+                for (var i = 0; i < fact.Count; i++)
+                {
+                    if (!fact[i].Name.Equals(newFact[i].Name) || fact[i].Value != newFact[i].Value) isSame = false;
+                }
+                if (isSame) return true;
             }
-            return true;
+            return false;
         }
     }
 }
