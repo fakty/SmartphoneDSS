@@ -32,11 +32,12 @@ namespace SmartphoneDSS
 
 
 
+            
             //Zamiana smarfonu na Listę formuł wejściowych
-
+            /*
             List<Smartphone> smartphones = SmartphoneReader.getSmartphones();
-            List<InputFormula> inputFormulas = SmartphoneInterpreter.getInputFormulas(smartphones[1]);
-
+            List<InputFormula> inputFormulas = SmartphoneInterpreter.getInputFormulas(smartphones[4]);
+            */
 
             InitializeComponent();
         }
