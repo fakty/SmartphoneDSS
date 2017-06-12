@@ -1,5 +1,6 @@
 ﻿using SmartphoneDSS.Database;
 using SmartphoneDSS.Database.Models;
+using SmartphoneDSS.Logic;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -29,10 +30,18 @@ namespace SmartphoneDSS
             List<Smartphone> phones = filter.filterByFormulas(list);
             */
 
+            //szukanie formul wyjsciowych
+            /*
+            KnowledgeBase kb = new KnowledgeBase();
+            var temp = new Evaluator(kb).CalculateOutputFormulas(null);
+            */
 
+            //szukanie formul wejsciowych
+            /*
+            KnowledgeBase kb = new KnowledgeBase();
+            var temp = new Evaluator(kb).CalculateInputFormulas(null);
+            */
 
-
-            
             //Zamiana smarfonu na Listę formuł wejściowych
             /*
             List<Smartphone> smartphones = SmartphoneReader.getSmartphones();

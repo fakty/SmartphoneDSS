@@ -1,6 +1,5 @@
 ﻿using SmartphoneDSS.Database.Models;
 using System.Collections.Generic;
-using SmartphoneDSS.Database;
 using System.Linq;
 
 namespace SmartphoneDSS.Logic
@@ -118,9 +117,17 @@ namespace SmartphoneDSS.Logic
 
             if (S1.Count > 0 && S2.Count > 0)
             {
-                foreach (var list in S2)
+                List<InputFormula> list;
+                for(var id = S1.Count - 1; id >= 0; id--)
                 {
-                    S1.Remove(list);
+                    list = S1[id];
+                    foreach (var elem in S2)
+                    {
+                        if(!list.Except(elem).Any())
+                        {
+                            S1.Remove(list);
+                        }
+                    }
                 }
             }
             return S1;
