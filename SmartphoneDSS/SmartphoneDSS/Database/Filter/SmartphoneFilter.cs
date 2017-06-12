@@ -21,25 +21,25 @@ namespace SmartphoneDSS.Database
                 if (formula.Value == true)
                 {
                     if (formula.Name == KnowledgeBase.alfa0)
-                        treshold.RAM = 2;
+                        treshold.RAM = Smartphone.TRESHOLD_RAM;
                     else if (formula.Name == KnowledgeBase.alfa1)
-                        treshold.BatteryCapacity = 3300;
+                        treshold.BatteryCapacity = Smartphone.TRESHOLD_BATTERY_CAPACITY;
                     else if (formula.Name == KnowledgeBase.alfa2)
-                        treshold.ScreenSize = 5.5f;
+                        treshold.ScreenSize = Smartphone.TRESHOLD_SCREEN_SIZE;
                     else if (formula.Name == KnowledgeBase.alfa3)
                         treshold.IsFullHD = true;
                     else if (formula.Name == KnowledgeBase.alfa4)
                         treshold.HasToughenedGlass = true;
                     else if (formula.Name == KnowledgeBase.alfa5)
-                        treshold.Camera = 13;
+                        treshold.Camera = Smartphone.TRESHOLD_CAMERA;
                     else if (formula.Name == KnowledgeBase.alfa6)
                         treshold.HasLTE = true;
                     else if (formula.Name == KnowledgeBase.alfa7)
-                        treshold.MaxConversationTime = 20;
+                        treshold.MaxConversationTime = Smartphone.TRESHOLD_MAX_CONVERSATION_TIME;
                     else if (formula.Name == KnowledgeBase.alfa8)
                         treshold.HasFastCharging = true;
                     else if (formula.Name == KnowledgeBase.alfa9)
-                        treshold.InternalMemory = 16;
+                        treshold.InternalMemory = Smartphone.TRESHOLD_INTERNAL_MEMORY;
                     else if (formula.Name == KnowledgeBase.alfa10)
                         treshold.HasExternalSlot = true;
                 }

@@ -11,17 +11,17 @@ namespace SmartphoneDSS.Database.Models
         private static readonly int FORMULAS_COUNT = 19;
 
         //Formuły wejściowe
-        public static readonly String alfa0 = "smartfon ma 2GB RAMu lub więcej";
-        public static readonly String alfa1 = "bateria powyżej 3300 mAh";
-        public static readonly String alfa2 = "matryca ma przekątną większą lub równą 5,5 cala";
-        public static readonly String alfa3 = "rozdzielczość nie mniejszą niż Full HD";
-        public static readonly String alfa4 = "smartfon posiada ekran z hartowanego szkła";
-        public static readonly String alfa5 = "telefon powinien mieć aparat >= 13 Mpx";
-        public static readonly String alfa6 = "smartfon powinien obsługiwać LTE";
-        public static readonly String alfa7 = "maksymalny czas rozmów co najmniej 20h";
-        public static readonly String alfa8 = "smartfon powinien mieć funkcję szybkiego ładowania";
-        public static readonly String alfa9 = "smartfon ma pamięć wewnętrzną większą niż 16GB";
-        public static readonly String alfa10 = "smartfon ma slot na kartę SD";
+        public static readonly String alfa0 = "smartfon musi mieć 2GB RAMu lub więcej";
+        public static readonly String alfa1 = "bateria musi mieć pojemnośc 3300 mAh lub większą";
+        public static readonly String alfa2 = "matryca musi mieć przekątną większą lub równą 5,5 cala";
+        public static readonly String alfa3 = "rozdzielczość musi być nie mniejsza niż Full HD";
+        public static readonly String alfa4 = "smartfon musi posiadać ekran z hartowanego szkła";
+        public static readonly String alfa5 = "telefon musi mieć aparat większy lub równy 13 Mpx";
+        public static readonly String alfa6 = "smartfon musi obsługiwać LTE";
+        public static readonly String alfa7 = "smartfon musi posiadać maksymalny czas rozmów co najmniej 20h";
+        public static readonly String alfa8 = "smartfon musi mieć funkcję szybkiego ładowania";
+        public static readonly String alfa9 = "smartfon musi mieć pamięć wewnętrzną większą lub równą niż 16GB";
+        public static readonly String alfa10 = "smartfon musi mieć slot na kartę SD";
 
         //Formuły wyjściowe
         public static readonly String alfa11 = "osoba intensywnie używa telefonu więcej niż 15h tygodniowo";
@@ -79,14 +79,14 @@ namespace SmartphoneDSS.Database.Models
                 return true;
         }
 
-        //Jeżeli osoba używa intensywnie telefonu więcej niż 15h tygodniowo to smartfon ma mieć >2GB RAMu i baterię powyżej 3300 mAh
+        //Jeżeli osoba używa intensywnie telefonu więcej niż 15h tygodniowo to smartfon ma mieć >= 2GB RAMu i baterię powyżej 3300 mAh
         public bool Fact1(List<Formula> formulas)
         {
             return Implication(formulas[11].Value, formulas[0].Value && formulas[1].Value);
         }
 
         //Jeżeli osoba spędza na czytaniu na urządzeniu mobilnym więcej niż 15h tygodniowo
-        //to matryca powinna mieć przekątną większą lub równą 5,5 cala i rozdzielczość nie mniejszą niż Full HD i baterię powyżej 3300 mAh
+        //to matryca powinna mieć przekątną większą lub równą 5,5 cala i rozdzielczość nie mniejszą niż Full HD i baterię >= 3300 mAh
         public bool Fact2(List<Formula> formulas)
         {
             return Implication(formulas[18].Value, formulas[2].Value && formulas[3].Value && formulas[1].Value);
@@ -116,7 +116,7 @@ namespace SmartphoneDSS.Database.Models
             return Implication(formulas[16].Value, formulas[7].Value && formulas[8].Value);
         }
 
-        //Jeżeli osoba używa telefonu jako odtwarzacza MP3 to powinna mieć pamięć wewnętrzną większą niż 16GB lub slot na kartę SD
+        //Jeżeli osoba używa telefonu jako odtwarzacza MP3 to powinna mieć pamięć wewnętrzną co najmniej 16GB lub slot na kartę SD
         public bool Fact7(List<Formula> formulas)
         {
             return Implication(formulas[17].Value, formulas[9].Value && formulas[10].Value);

@@ -12,10 +12,10 @@ namespace SmartphoneDSS
     {
         public MainWindow()
         {
-            //Działające filtrowanie
-            
             /*
-             * KnowledgeBase kb = new KnowledgeBase();
+            Zamiana formuł wejściowych na listę modeli smartfonów
+
+            KnowledgeBase kb = new KnowledgeBase();
             List<InputFormula> formulas = kb.GetInputFormulas();
             formulas[1].Value = true;
             KnowledgeBase kb2 = new KnowledgeBase();
@@ -28,6 +28,15 @@ namespace SmartphoneDSS
             list.Add(formulas2);
             List<Smartphone> phones = filter.filterByFormulas(list);
             */
+
+
+
+
+            //Zamiana smarfonu na Listę formuł wejściowych
+
+            List<Smartphone> smartphones = SmartphoneReader.getSmartphones();
+            List<InputFormula> inputFormulas = SmartphoneInterpreter.getInputFormulas(smartphones[1]);
+
 
             InitializeComponent();
         }
