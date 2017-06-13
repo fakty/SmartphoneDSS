@@ -1,8 +1,6 @@
-﻿using SmartphoneDSS.Database;
-using SmartphoneDSS.Database.Models;
+﻿using SmartphoneDSS.Database.Models;
 using SmartphoneDSS.Logic;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 
 namespace SmartphoneDSS
@@ -52,8 +50,11 @@ namespace SmartphoneDSS
             Fu[1].Value = true;
             Fu[2].Value = true;
             Fu[3].Value = true;
+            Fu[4].Value = true;
+            Fu[5].Value = true;
             Fu[6].Value = true;
             Fu[7].Value = true;
+            Fu[8].Value = true;
             Fu[9].Value = true;
             Fu[10].Value = true;
 

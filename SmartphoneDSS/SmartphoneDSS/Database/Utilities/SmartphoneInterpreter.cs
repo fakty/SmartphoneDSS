@@ -10,7 +10,7 @@ namespace SmartphoneDSS.Database
 {
     class SmartphoneInterpreter
     {
-        public static List<InputFormula> getInputFormulas(Smartphone smartphone)
+        public static List<InputFormula> GetInputFormulas(Smartphone smartphone)
         {
             List<InputFormula> inputFormulas = new KnowledgeBase().GetInputFormulas();
             
