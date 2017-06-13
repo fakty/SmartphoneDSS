@@ -1,6 +1,7 @@
 ﻿using SmartphoneDSS.Database.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -55,18 +56,18 @@ namespace SmartphoneDSS.Database
             Smartphone smartphone = new Smartphone();
    
             smartphone.Name = values[0];
-            smartphone.RAM = float.Parse(values[1]);
+            smartphone.RAM = float.Parse(values[1], CultureInfo.InvariantCulture);
             smartphone.BatteryCapacity = int.Parse(values[2]);
-            smartphone.ScreenSize = float.Parse(values[3]);
+            smartphone.ScreenSize = float.Parse(values[3], CultureInfo.InvariantCulture);
             smartphone.IsFullHD = parseToBoolean(values[4]);
             smartphone.HasToughenedGlass = parseToBoolean(values[5]);
-            smartphone.Camera = float.Parse(values[6]);
+            smartphone.Camera = float.Parse(values[6], CultureInfo.InvariantCulture);
             smartphone.HasLTE = parseToBoolean(values[7]);
             smartphone.MaxConversationTime = int.Parse(values[8]);
             smartphone.HasFastCharging = parseToBoolean(values[9]);
             smartphone.InternalMemory = int.Parse(values[10]);
             smartphone.HasExternalSlot = parseToBoolean(values[11]);
-            smartphone.Price = float.Parse(values[12]);
+            smartphone.Price = float.Parse(values[12], CultureInfo.InvariantCulture);
 
             return smartphone;
         }

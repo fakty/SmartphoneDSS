@@ -11,7 +11,7 @@ namespace SmartphoneDSS.Database
 {
     class SmartphoneFilter : Filter<InputFormula, Smartphone>
     {
-        internal override List<Smartphone> FilterByFormulasSetElement(List<InputFormula> setElement)
+        internal override List<Smartphone> FilterByFormulasSetElement(List<InputFormula> setElement, float price)
         {
             List<Smartphone> allPhones = SmartphoneReader.getSmartphones();
             List<Smartphone> filtered = new List<Smartphone>();
@@ -21,31 +21,31 @@ namespace SmartphoneDSS.Database
                 if (formula.Value == true)
                 {
                     if (formula.Name == KnowledgeBase.alfa0)
-                        treshold.RAM = Smartphone.TRESHOLD_RAM;
+                        treshold.RAM = InputFormula.TRESHOLD_RAM;
                     else if (formula.Name == KnowledgeBase.alfa1)
-                        treshold.BatteryCapacity = Smartphone.TRESHOLD_BATTERY_CAPACITY;
+                        treshold.BatteryCapacity = InputFormula.TRESHOLD_BATTERY_CAPACITY;
                     else if (formula.Name == KnowledgeBase.alfa2)
-                        treshold.ScreenSize = Smartphone.TRESHOLD_SCREEN_SIZE;
+                        treshold.ScreenSize = InputFormula.TRESHOLD_SCREEN_SIZE;
                     else if (formula.Name == KnowledgeBase.alfa3)
                         treshold.IsFullHD = true;
                     else if (formula.Name == KnowledgeBase.alfa4)
                         treshold.HasToughenedGlass = true;
                     else if (formula.Name == KnowledgeBase.alfa5)
-                        treshold.Camera = Smartphone.TRESHOLD_CAMERA;
+                        treshold.Camera = InputFormula.TRESHOLD_CAMERA;
                     else if (formula.Name == KnowledgeBase.alfa6)
                         treshold.HasLTE = true;
                     else if (formula.Name == KnowledgeBase.alfa7)
-                        treshold.MaxConversationTime = Smartphone.TRESHOLD_MAX_CONVERSATION_TIME;
+                        treshold.MaxConversationTime = InputFormula.TRESHOLD_MAX_CONVERSATION_TIME;
                     else if (formula.Name == KnowledgeBase.alfa8)
                         treshold.HasFastCharging = true;
                     else if (formula.Name == KnowledgeBase.alfa9)
-                        treshold.InternalMemory = Smartphone.TRESHOLD_INTERNAL_MEMORY;
+                        treshold.InternalMemory = InputFormula.TRESHOLD_INTERNAL_MEMORY;
                     else if (formula.Name == KnowledgeBase.alfa10)
                         treshold.HasExternalSlot = true;
                 }
             }
 
-            filtered = allPhones.Where(phone => phone >= treshold).ToList();
+            filtered = allPhones.Where(phone => phone >= treshold && phone.Price <= price).ToList();
             return filtered;
         }
     }
