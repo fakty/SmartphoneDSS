@@ -93,7 +93,7 @@ namespace SmartphoneDSS
         /// <returns>Zbiór faktów reprezentujących userów dla których jest ten smartfon</returns>
         private List<List<OutputFormula>> getUserTypeFromChoosedSmartphone(Smartphone smartphone)
         {
-            List<InputFormula> inputFormulas = SmartphoneInterpreter.getInputFormulas(smartphone);
+            List<InputFormula> inputFormulas = SmartphoneInterpreter.GetInputFormulas(smartphone);
             List<List<OutputFormula>> userType = new Evaluator(new KnowledgeBase()).CalculateOutputFormulas(inputFormulas);
             return userType;
         }
