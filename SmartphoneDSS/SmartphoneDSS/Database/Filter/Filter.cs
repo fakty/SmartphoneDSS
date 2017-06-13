@@ -11,13 +11,13 @@ namespace SmartphoneDSS.Database.Filter
 {
     abstract class Filter<T1, T2> where T1 : Formula
     {
-        public List<T2> filterByFormulas(List<List<T1>> formulas)
+        public List<T2> FilterByFormulas(List<List<T1>> formulas)
         {
             List<T2> filtered = new List<T2>();
 
             foreach (List<T1> setElement in formulas)
             {
-                List<T2> filteredPart = filterByFormulasSetElement(setElement);
+                List<T2> filteredPart = FilterByFormulasSetElement(setElement);
                 filtered.AddRange(filteredPart);
                 filtered = filtered.Distinct().ToList();
             }
@@ -30,6 +30,6 @@ namespace SmartphoneDSS.Database.Filter
             return filtered;
         }
 
-        internal abstract List<T2> filterByFormulasSetElement(List<T1> setElement);
+        internal abstract List<T2> FilterByFormulasSetElement(List<T1> setElement);
     }
 }

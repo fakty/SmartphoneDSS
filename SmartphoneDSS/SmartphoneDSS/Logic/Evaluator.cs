@@ -16,7 +16,6 @@ namespace SmartphoneDSS.Logic
         //Zwraca liste znalezionych faktow wyjsciowych (fakt = lista formul).
         public List<List<OutputFormula>> CalculateOutputFormulas(List<InputFormula> factU)
         {
-            //TO DO missing correct parameter type!!!
             var S = new List<List<OutputFormula>>();
             
             while (HasNextIteration(FormBase.GetFormulas()))
@@ -35,16 +34,18 @@ namespace SmartphoneDSS.Logic
                                     {
                                         if (FormBase.Fact7(FormBase.GetFormulas()))
                                         {
-                                            //TO DO check Fu in this line
-                                            // Fu = 1
-                                            var result = new List<OutputFormula>(8);
-                                            for (var j = 11; j < FormBase.GetFormulas().Count; j++)
+                                            //checking Fu = 1
+                                            if (CheckFactU(FormBase.GetFormulas(), factU))
                                             {
-                                                result.Add(new OutputFormula((OutputFormula)FormBase.GetFormulas()[j]));
-                                            }
-                                            if (!ContainsSameItem(S, result))
-                                            {
-                                                S.Add(result);
+                                                var result = new List<OutputFormula>(8);
+                                                for (var j = 11; j < FormBase.GetFormulas().Count; j++)
+                                                {
+                                                    result.Add(new OutputFormula((OutputFormula)FormBase.GetFormulas()[j]));
+                                                }
+                                                if (!ContainsSameItem(S, result))
+                                                {
+                                                    S.Add(result);
+                                                }
                                             }
                                         }
                                     }
@@ -63,7 +64,6 @@ namespace SmartphoneDSS.Logic
         //Zwraca liste znalezionych faktow wejsciowych (fakt = lista formul).
         public List<List<InputFormula>> CalculateInputFormulas(List<OutputFormula> factY)
         {
-            //TO DO missing correct parameter type!!!
             var S1 = new List<List<InputFormula>>();
             var S2 = new List<List<InputFormula>>();
 
@@ -83,28 +83,31 @@ namespace SmartphoneDSS.Logic
                                     {
                                         if (FormBase.Fact7(FormBase.GetFormulas()))
                                         {
-                                            //TO DO check Fy in this line
-                                            // Fy = 1
-                                            var result1 = new List<InputFormula>(11);
-                                            for (var j = 0; j < 11; j++)
+                                            //checking Fy = 1
+                                            if (CheckFactY(FormBase.GetFormulas(), factY))
                                             {
-                                                result1.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
+                                                var result1 = new List<InputFormula>(11);
+                                                for (var j = 0; j < 11; j++)
+                                                {
+                                                    result1.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
+                                                }
+                                                if (!ContainsSameItem(S1, result1))
+                                                {
+                                                    S1.Add(result1);
+                                                }
                                             }
-                                            if (!ContainsSameItem(S1, result1))
+                                            /*else // Fy = 0 - pozniej wytlumacze czemu w komentarzu
                                             {
-                                                S1.Add(result1);
-                                            }
-
-                                            // Fy = 0
-                                            var result2 = new List<InputFormula>(11);
-                                            for (var j = 0; j < 11; j++)
-                                            {
-                                                result2.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
-                                            }
-                                            if (!ContainsSameItem(S2, result2))
-                                            {
-                                                S2.Add(result2);
-                                            }
+                                                var result2 = new List<InputFormula>(11);
+                                                for (var j = 0; j < 11; j++)
+                                                {
+                                                    result2.Add(new InputFormula((InputFormula)FormBase.GetFormulas()[j]));
+                                                }
+                                                if (!ContainsSameItem(S2, result2))
+                                                {
+                                                    S2.Add(result2);
+                                                }
+                                            }*/
                                         }
                                     }
                                 }
@@ -192,6 +195,24 @@ namespace SmartphoneDSS.Logic
                 if (isSame) return true;
             }
             return false;
+        }
+
+        private bool CheckFactU(List<Formula> list, List<InputFormula> factU)
+        {
+            for(var i = 0; i < factU.Count; i++)
+            {
+                if (factU[i].Value != list[i].Value) return false;
+            }
+            return true;
+        }
+
+        private bool CheckFactY(List<Formula> list, List<OutputFormula> factY)
+        {
+            for (var i = 0; i < factY.Count; i++)
+            {
+                if (factY[i].Value && !list[11 + i].Value) return false;
+            }
+            return true;
         }
     }
 }

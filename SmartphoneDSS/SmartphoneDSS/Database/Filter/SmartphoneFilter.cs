@@ -11,7 +11,7 @@ namespace SmartphoneDSS.Database
 {
     class SmartphoneFilter : Filter<InputFormula, Smartphone>
     {
-        internal override List<Smartphone> filterByFormulasSetElement(List<InputFormula> setElement)
+        internal override List<Smartphone> FilterByFormulasSetElement(List<InputFormula> setElement)
         {
             List<Smartphone> allPhones = SmartphoneReader.getSmartphones();
             List<Smartphone> filtered = new List<Smartphone>();
