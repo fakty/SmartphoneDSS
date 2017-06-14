@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartphoneDSS.Database.Models
 {
@@ -71,6 +67,11 @@ namespace SmartphoneDSS.Database.Models
                 return false;
             }
             return this.Name == (obj as Smartphone).Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

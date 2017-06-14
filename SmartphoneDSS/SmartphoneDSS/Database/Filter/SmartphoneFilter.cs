@@ -1,11 +1,7 @@
 ﻿using SmartphoneDSS.Database.Filter;
 using SmartphoneDSS.Database.Models;
-using SmartphoneDSS.Exceptions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartphoneDSS.Database
 {
@@ -13,7 +9,7 @@ namespace SmartphoneDSS.Database
     {
         internal override List<Smartphone> FilterByFormulasSetElement(List<InputFormula> setElement, float price)
         {
-            List<Smartphone> allPhones = SmartphoneReader.getSmartphones();
+            List<Smartphone> allPhones = SmartphoneReader.GetSmartphones();
             List<Smartphone> filtered = new List<Smartphone>();
             Smartphone treshold = new Smartphone();
             foreach (InputFormula formula in setElement)

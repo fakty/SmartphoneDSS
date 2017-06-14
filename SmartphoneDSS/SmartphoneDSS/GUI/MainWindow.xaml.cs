@@ -91,7 +91,7 @@ namespace SmartphoneDSS
         /// </summary>
         /// <param name="smartphone">Smarfon który klika user</param>
         /// <returns>Zbiór faktów reprezentujących userów dla których jest ten smartfon</returns>
-        private List<List<OutputFormula>> getUserTypeFromChoosedSmartphone(Smartphone smartphone)
+        private List<List<OutputFormula>> GetUserTypeFromChoosedSmartphone(Smartphone smartphone)
         {
             List<InputFormula> inputFormulas = SmartphoneInterpreter.GetInputFormulas(smartphone);
             List<List<OutputFormula>> userType = new Evaluator(new KnowledgeBase()).CalculateOutputFormulas(inputFormulas);
@@ -104,7 +104,7 @@ namespace SmartphoneDSS
         /// <param name="outputFormulas">Fakt na podstawie którego wybieramy smartfony</param>
         /// <param name="price">Cena jaką user zadeklarował że może max wydać</param>
         /// <returns>lista smartfonów</returns>
-        private List<Smartphone> getSmartphonesFromUserPreferences(List<OutputFormula> outputFormulas, float price)
+        private List<Smartphone> GetSmartphonesFromUserPreferences(List<OutputFormula> outputFormulas, float price)
         {
             var temp = new Evaluator(new KnowledgeBase()).CalculateInputFormulas(outputFormulas);
             SmartphoneFilter sf = new SmartphoneFilter();
@@ -112,7 +112,7 @@ namespace SmartphoneDSS
             return preferredSmartphones;
         }
 
-        private List<OutputFormula> getOutputFormulasFromInput()
+        private List<OutputFormula> GetOutputFormulasFromInput()
         {
             List<OutputFormula> outputFormulas = new KnowledgeBase().GetOutputFormulas();
             foreach (OutputFormula formula in outputFormulas)
@@ -137,7 +137,7 @@ namespace SmartphoneDSS
             return outputFormulas;
         }
 
-        private void findSmartphonesButton_Click(object sender, RoutedEventArgs e)
+        private void FindSmartphonesButton_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrEmpty(intensiveUsageTextBox.Text) ||
                 String.IsNullOrEmpty(readingTextBox.Text) ||
@@ -149,10 +149,10 @@ namespace SmartphoneDSS
                 MessageBox.Show("Wypełnij wszystkie pola!");
             } else
             {
-                List<OutputFormula> formulas = getOutputFormulasFromInput();
+                List<OutputFormula> formulas = GetOutputFormulasFromInput();
                 try
                 {
-                    List<Smartphone> smartphones = getSmartphonesFromUserPreferences(formulas, float.Parse(maximumPriceTextBox.Text, CultureInfo.InvariantCulture));
+                    List<Smartphone> smartphones = GetSmartphonesFromUserPreferences(formulas, float.Parse(maximumPriceTextBox.Text, CultureInfo.InvariantCulture));
                     List<String> names = smartphones.Select(i => i.Name + " Cena: " + i.Price).ToList();
                     resultsList.ItemsSource = names;
                     MessageBox.Show("Znalezione wyniki: " + smartphones.Count);

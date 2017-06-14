@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartphoneDSS.Database
 {
@@ -16,7 +13,7 @@ namespace SmartphoneDSS.Database
 
         private static List<Smartphone> Smartphones;
 
-        public static List<Smartphone> getSmartphones()
+        public static List<Smartphone> GetSmartphones()
         {
             if (Smartphones != null)
             {
@@ -24,12 +21,12 @@ namespace SmartphoneDSS.Database
             } 
             else
             {
-                readFromFile();
+                ReadFromFile();
                 return Smartphones;
             }
         }
 
-        private static void readFromFile()
+        private static void ReadFromFile()
         {
             Smartphones = new List<Smartphone>();
             using (var fs = File.OpenRead(FilePath))
@@ -45,34 +42,34 @@ namespace SmartphoneDSS.Database
                     }
                     else
                     {
-                        Smartphones.Add(parseLine(values));
+                        Smartphones.Add(ParseLine(values));
                     }
                 }
             }
         }
 
-        private static Smartphone parseLine(string[] values)
+        private static Smartphone ParseLine(string[] values)
         {
-            Smartphone smartphone = new Smartphone();
-   
-            smartphone.Name = values[0];
-            smartphone.RAM = float.Parse(values[1], CultureInfo.InvariantCulture);
-            smartphone.BatteryCapacity = int.Parse(values[2]);
-            smartphone.ScreenSize = float.Parse(values[3], CultureInfo.InvariantCulture);
-            smartphone.IsFullHD = parseToBoolean(values[4]);
-            smartphone.HasToughenedGlass = parseToBoolean(values[5]);
-            smartphone.Camera = float.Parse(values[6], CultureInfo.InvariantCulture);
-            smartphone.HasLTE = parseToBoolean(values[7]);
-            smartphone.MaxConversationTime = int.Parse(values[8]);
-            smartphone.HasFastCharging = parseToBoolean(values[9]);
-            smartphone.InternalMemory = int.Parse(values[10]);
-            smartphone.HasExternalSlot = parseToBoolean(values[11]);
-            smartphone.Price = float.Parse(values[12], CultureInfo.InvariantCulture);
-
+            Smartphone smartphone = new Smartphone()
+            {
+                Name = values[0],
+                RAM = float.Parse(values[1], CultureInfo.InvariantCulture),
+                BatteryCapacity = int.Parse(values[2]),
+                ScreenSize = float.Parse(values[3], CultureInfo.InvariantCulture),
+                IsFullHD = ParseToBoolean(values[4]),
+                HasToughenedGlass = ParseToBoolean(values[5]),
+                Camera = float.Parse(values[6], CultureInfo.InvariantCulture),
+                HasLTE = ParseToBoolean(values[7]),
+                MaxConversationTime = int.Parse(values[8]),
+                HasFastCharging = ParseToBoolean(values[9]),
+                InternalMemory = int.Parse(values[10]),
+                HasExternalSlot = ParseToBoolean(values[11]),
+                Price = float.Parse(values[12], CultureInfo.InvariantCulture)
+            };
             return smartphone;
         }
 
-        private static bool parseToBoolean(String value)
+        private static bool ParseToBoolean(String value)
         {
             if (value.Equals("Tak"))
             {
