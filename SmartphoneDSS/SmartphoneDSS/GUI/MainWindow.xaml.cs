@@ -137,7 +137,7 @@ namespace SmartphoneDSS
             return outputFormulas;
         }
 
-        private void FindSmartphonesButton_Click(object sender, RoutedEventArgs e)
+        private void findSmartphonesButton_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrEmpty(intensiveUsageTextBox.Text) ||
                 String.IsNullOrEmpty(readingTextBox.Text) ||
