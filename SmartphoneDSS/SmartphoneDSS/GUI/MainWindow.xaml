@@ -50,14 +50,11 @@
                         <ColumnDefinition Width="62*"/>
                         <ColumnDefinition Width="621*"/>
                     </Grid.ColumnDefinitions>
-                    <ListView x:Name="smartphoneList" HorizontalAlignment="Left" Height="329" Margin="23,10,0,0" VerticalAlignment="Top" Width="635" Grid.ColumnSpan="2">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <Button x:Name="button" Content="Sprawdź dla kogo jest ten smartfon" HorizontalAlignment="Left" Margin="393,369,0,0" VerticalAlignment="Top" Width="203" Grid.Column="1"/>
+                    <Button x:Name="button" Content="Sprawdź dla kogo jest ten smartfon" HorizontalAlignment="Left" Margin="393,386,0,0" VerticalAlignment="Top" Width="203" Grid.Column="1"/>
+                    <Label x:Name="label10" Content="Lista smartfonów" HorizontalAlignment="Left" Margin="42,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <Label x:Name="label11" Content="Użytkownicy" Grid.Column="1" HorizontalAlignment="Left" Margin="241,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.235,0.654"/>
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="listBox1" Grid.Column="1" HorizontalAlignment="Left" Height="320" Margin="241,51,0,0" VerticalAlignment="Top" Width="355"/>
                 </Grid>
             </TabItem>
         </TabControl>
