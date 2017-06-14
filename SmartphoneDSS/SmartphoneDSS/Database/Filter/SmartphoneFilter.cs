@@ -9,7 +9,7 @@ namespace SmartphoneDSS.Database
     {
         internal override List<Smartphone> FilterByFormulasSetElement(List<InputFormula> setElement, float price)
         {
-            List<Smartphone> allPhones = SmartphoneReader.GetSmartphones();
+            List<Smartphone> allPhones = SmartphoneFileHandler.GetSmartphones();
             List<Smartphone> filtered = new List<Smartphone>();
             Smartphone treshold = new Smartphone();
             foreach (InputFormula formula in setElement)

@@ -53,8 +53,61 @@
                     <Button x:Name="button" Content="Sprawdź dla kogo jest ten smartfon" HorizontalAlignment="Left" Margin="393,386,0,0" VerticalAlignment="Top" Width="203" Grid.Column="1"/>
                     <Label x:Name="label10" Content="Lista smartfonów" HorizontalAlignment="Left" Margin="42,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <Label x:Name="label11" Content="Użytkownicy" Grid.Column="1" HorizontalAlignment="Left" Margin="241,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.235,0.654"/>
-                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2"/>
-                    <ListBox x:Name="listBox1" Grid.Column="1" HorizontalAlignment="Left" Height="320" Margin="241,51,0,0" VerticalAlignment="Top" Width="355"/>
+                    <ListBox x:Name="smartphones" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="results" Grid.Column="1" HorizontalAlignment="Left" Height="320" Margin="241,51,0,0" VerticalAlignment="Top" Width="355"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dodawanie smartfona" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="134" Margin="-2.5,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Background="#FFE5E5E5" Margin="0,-3,0,3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="343*"/>
+                            <RowDefinition Height="100*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="94*"/>
+                            <ColumnDefinition Width="31*"/>
+                            <ColumnDefinition Width="90*"/>
+                            <ColumnDefinition Width="454*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="addSmartphonesButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266.5,38,0,0" VerticalAlignment="Top" Width="152" Grid.Column="5" Height="26" Grid.Row="1" Click="addSmartphonesButton_Click"/>
+                        <Label x:Name="label12" Content="RAM (GB)" HorizontalAlignment="Left" Margin="17,87,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+                        <Label x:Name="label13" Content="Pojemność baterii (mAh)" HorizontalAlignment="Left" Margin="17,132,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <Label x:Name="label14" Content="Przekątna matrycy (cale)" HorizontalAlignment="Left" Margin="17,182,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <Label x:Name="label15" Content="Matryca aparatu (MPix)" HorizontalAlignment="Left" Margin="17,233,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <Label x:Name="label16" HorizontalAlignment="Left" Margin="152.5,88,0,0" VerticalAlignment="Top" Grid.Column="5">
+                            <CheckBox x:Name="hasLTE" Content="LTE" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Label>
+                        <Label x:Name="label17" HorizontalAlignment="Left" Margin="154.5,45,0,0" VerticalAlignment="Top" Grid.Column="5">
+                            <CheckBox x:Name="hasToughenedGlass" Content="Szkło hartowane" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Label>
+                        <Label x:Name="label18" Content="Pamięć wewnętrzna (GB)" HorizontalAlignment="Left" Margin="17,284,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <Label x:Name="label19" HorizontalAlignment="Left" Margin="152.5,138,0,0" VerticalAlignment="Top" Grid.Column="5">
+                            <CheckBox x:Name="hasFastCharging" Content="Szybkie ładowanie" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Label>
+                        <TextBox x:Name="RAMTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5"/>
+                        <TextBox x:Name="batteryTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5"/>
+                        <TextBox x:Name="screenSizeTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5"/>
+                        <TextBox x:Name="cameraTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5"/>
+                        <TextBox x:Name="internalMemoryTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5"/>
+                        <Label x:Name="label20" Content="Cena (zł)" HorizontalAlignment="Left" Margin="154.5,284,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold" Grid.Column="5"/>
+                        <TextBox x:Name="priceTextBox" HorizontalAlignment="Left" Height="26" Margin="328.5,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Grid.Column="5"/>
+                        <Label x:Name="label18_Copy" Content="Maksymalny czas konwersacji (h)" HorizontalAlignment="Left" Margin="17,336,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="2"/>
+                        <TextBox x:Name="maxConversationTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5" Grid.RowSpan="2"/>
+                        <Label x:Name="label20_Copy" Content="Nazwa" HorizontalAlignment="Left" Margin="19,34,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="26" Margin="81,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Grid.ColumnSpan="4" Grid.Column="2"/>
+                        <Label x:Name="label19_Copy" HorizontalAlignment="Left" Margin="152.5,183,0,0" VerticalAlignment="Top" Grid.Column="5">
+                            <CheckBox x:Name="hasExternalSlot" Content="Slot na pamięć zewnętrzną" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Label>
+                        <Label x:Name="label19_Copy1" HorizontalAlignment="Left" Margin="152.5,231,0,0" VerticalAlignment="Top" Grid.Column="5">
+                            <CheckBox x:Name="isFullHD" Content="Rozdzielczość Full HD" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Label>
+                    </Grid>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Globalization;
 
 namespace SmartphoneDSS.Database.Models
 {
     class Smartphone
     {
+        private static String CSV_DELIMITER = ",";
+
         public String Name { get; set; }
         public float RAM { get; set; }
         public int BatteryCapacity { get; set; }
@@ -72,6 +75,25 @@ namespace SmartphoneDSS.Database.Models
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            string csvString = "\n" + Name + CSV_DELIMITER
+                + Convert.ToString(RAM, CultureInfo.InvariantCulture) + CSV_DELIMITER
+                + BatteryCapacity + CSV_DELIMITER
+                + Convert.ToString(ScreenSize, CultureInfo.InvariantCulture) + CSV_DELIMITER
+                + SmartphoneFileHandler.ParseFromBoolean(IsFullHD) + CSV_DELIMITER
+                + SmartphoneFileHandler.ParseFromBoolean(HasToughenedGlass) + CSV_DELIMITER
+                + Convert.ToString(Camera, CultureInfo.InvariantCulture) + CSV_DELIMITER
+                + SmartphoneFileHandler.ParseFromBoolean(HasLTE) + CSV_DELIMITER
+                + MaxConversationTime + CSV_DELIMITER
+                + SmartphoneFileHandler.ParseFromBoolean(HasFastCharging) + CSV_DELIMITER
+                + InternalMemory + CSV_DELIMITER
+                + SmartphoneFileHandler.ParseFromBoolean(HasExternalSlot) + CSV_DELIMITER
+                + Convert.ToString(Price, CultureInfo.InvariantCulture) + "\n";
+                                
+            return csvString;
         }
     }
 }

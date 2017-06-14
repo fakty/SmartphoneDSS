@@ -17,72 +17,6 @@ namespace SmartphoneDSS
     {
         public MainWindow()
         {
-            //szukanie formul wyjsciowych
-            /*
-            KnowledgeBase kb = new KnowledgeBase();
-            var Fu = new List<InputFormula>() {
-                new InputFormula(KnowledgeBase.alfa0),
-                new InputFormula(KnowledgeBase.alfa1),
-                new InputFormula(KnowledgeBase.alfa2),
-                new InputFormula(KnowledgeBase.alfa3),
-                new InputFormula(KnowledgeBase.alfa4),
-                new InputFormula(KnowledgeBase.alfa5),
-                new InputFormula(KnowledgeBase.alfa6),
-                new InputFormula(KnowledgeBase.alfa7),
-                new InputFormula(KnowledgeBase.alfa8),
-                new InputFormula(KnowledgeBase.alfa9),
-                new InputFormula(KnowledgeBase.alfa10),
-            };
-
-            Fu[0].Value = true;
-            Fu[1].Value = true;
-            Fu[2].Value = true;
-            Fu[3].Value = true;
-            Fu[6].Value = true;
-            Fu[7].Value = true;
-            Fu[9].Value = true;
-            Fu[10].Value = true;
-
-            var temp = new Evaluator(kb).CalculateOutputFormulas(Fu);
-
-            //
-            List<Smartphone> s = SmartphoneReader.getSmartphones();
-            var a = getUserTypeFromChoosedSmartphone(s[5]);
-            */
-
-
-
-
-            //szukanie formul wejsciowych
-            /*
-            KnowledgeBase kb = new KnowledgeBase();
-            var Fy = new List<OutputFormula>() {
-                new OutputFormula(KnowledgeBase.alfa11),
-                new OutputFormula(KnowledgeBase.alfa12),
-                new OutputFormula(KnowledgeBase.alfa13),
-                new OutputFormula(KnowledgeBase.alfa14),
-                new OutputFormula(KnowledgeBase.alfa15),
-                new OutputFormula(KnowledgeBase.alfa16),
-                new OutputFormula(KnowledgeBase.alfa17),
-                new OutputFormula(KnowledgeBase.alfa18)
-            };
-
-            Fy[0].Value = true;
-            Fy[2].Value = true;
-            Fy[6].Value = true;
-            Fy[7].Value = true;
-
-            var temp = new Evaluator(kb).CalculateInputFormulas(Fy);
-            SmartphoneFilter sf = new SmartphoneFilter();
-            var smart = sf.FilterByFormulas(temp);
-            */
-
-            //Zamiana smarfonu na Listę formuł wejściowych
-            /*
-            List<Smartphone> smartphones = SmartphoneReader.getSmartphones();
-            List<InputFormula> inputFormulas = SmartphoneInterpreter.getInputFormulas(smartphones[4]);
-            */
-
             InitializeComponent();
         }
 
@@ -141,7 +75,7 @@ namespace SmartphoneDSS
         {
             if (String.IsNullOrEmpty(intensiveUsageTextBox.Text) ||
                 String.IsNullOrEmpty(readingTextBox.Text) ||
-                String.IsNullOrEmpty(fallingDownTextBox.Text) || 
+                String.IsNullOrEmpty(fallingDownTextBox.Text) ||
                 String.IsNullOrEmpty(photosTextBox.Text) ||
                 String.IsNullOrEmpty(phoneConversationTextBox.Text) ||
                 String.IsNullOrEmpty(maximumPriceTextBox.Text))
@@ -162,7 +96,52 @@ namespace SmartphoneDSS
                     MessageBox.Show(exception.Message);
                 }
 
-            } 
+            }
+        }
+
+        private Smartphone getSmartphoneFromInput()
+        {
+            Smartphone smartphone = new Smartphone();
+
+            if (String.IsNullOrEmpty(nameTextBox.Text) ||
+                String.IsNullOrEmpty(RAMTextBox.Text) ||
+                String.IsNullOrEmpty(batteryTextBox.Text) ||
+                String.IsNullOrEmpty(cameraTextBox.Text) ||
+                String.IsNullOrEmpty(maxConversationTimeTextBox.Text) ||
+                String.IsNullOrEmpty(screenSizeTextBox.Text) ||
+                String.IsNullOrEmpty(internalMemoryTextBox.Text) ||
+                String.IsNullOrEmpty(priceTextBox.Text))
+            {
+                MessageBox.Show("Wypełnij wszystkie pola!");
+                return null;
+            }
+            else
+            {
+                smartphone.Name = nameTextBox.Text;
+                smartphone.RAM = float.Parse(RAMTextBox.Text, CultureInfo.InvariantCulture);
+                smartphone.BatteryCapacity = int.Parse(batteryTextBox.Text);
+                smartphone.ScreenSize = float.Parse(screenSizeTextBox.Text, CultureInfo.InvariantCulture);
+                smartphone.InternalMemory = int.Parse(internalMemoryTextBox.Text);
+                smartphone.Camera = float.Parse(cameraTextBox.Text, CultureInfo.InvariantCulture);
+                smartphone.MaxConversationTime = int.Parse(maxConversationTimeTextBox.Text);
+                smartphone.HasToughenedGlass = (bool)hasToughenedGlass.IsChecked;
+                smartphone.HasLTE = (bool)hasLTE.IsChecked;
+                smartphone.HasFastCharging = (bool)hasFastCharging.IsChecked;
+                smartphone.HasExternalSlot = (bool)hasExternalSlot.IsChecked;
+                smartphone.IsFullHD = (bool)isFullHD.IsChecked;
+                smartphone.Price = float.Parse(priceTextBox.Text, CultureInfo.InvariantCulture);
+                return smartphone;
+            }
+        }
+
+        private void addSmartphonesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Smartphone s = getSmartphoneFromInput();
+            if (s != null)
+            {
+                SmartphoneFileHandler.SaveSmartphone(s);
+                MessageBox.Show("Dodano smartfona do bazy!");
+            }
         }
     }
 }

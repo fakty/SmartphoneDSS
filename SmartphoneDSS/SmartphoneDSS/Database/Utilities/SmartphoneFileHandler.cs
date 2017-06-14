@@ -6,7 +6,7 @@ using System.IO;
 
 namespace SmartphoneDSS.Database
 {
-    class SmartphoneReader
+    class SmartphoneFileHandler
     {
         private static readonly String FileName = "smartphones.csv";
         private static readonly string FilePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\Assets\\" + FileName;
@@ -79,6 +79,25 @@ namespace SmartphoneDSS.Database
             {
                 return false;
             }
+        }
+
+        public static String ParseFromBoolean(bool arg)
+        {
+            if (arg)
+            {
+                return "Tak";
+            }
+            else
+            {
+                return "Nie";
+            }
+        }
+
+        public static void SaveSmartphone(Smartphone smartphone)
+        {
+            String newRow = smartphone.ToString();
+            File.AppendAllText(FilePath, newRow);
+            Smartphones = null;
         }
     }
 }
