@@ -7,10 +7,11 @@
         Title="Projekt SWD" Height="489.533" Width="689.149">
     <Grid Margin="0,0,-5,-18">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="346*"/>
-            <ColumnDefinition Width="343*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="171*"/>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="689" Grid.ColumnSpan="2" Margin="0,0,-3,10">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="689" Grid.ColumnSpan="3" Margin="0,0,-3,10">
             <TabItem Header="Wybór smartfona">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
@@ -57,7 +58,7 @@
                     <ListBox x:Name="results" Grid.Column="1" HorizontalAlignment="Left" Height="320" Margin="241,51,0,0" VerticalAlignment="Top" Width="355"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Dodawanie smartfona" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="134" Margin="-2.5,0,0,0">
+            <TabItem Header="Dodawanie smartfona" Name="addingSmartphoneTab" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="134" Margin="-2.5,0,0,0">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -109,6 +110,9 @@
                         </Label>
                     </Grid>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Zmiana wartości progowych" Name="tresholdValuesTab" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="168" Margin="-4,0,-110,0" RenderTransformOrigin="0.494,0.617">
+                <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
     </Grid>

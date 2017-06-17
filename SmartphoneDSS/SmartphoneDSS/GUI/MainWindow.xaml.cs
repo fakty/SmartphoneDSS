@@ -1,5 +1,6 @@
 ﻿using SmartphoneDSS.Database;
 using SmartphoneDSS.Database.Models;
+using SmartphoneDSS.Database.Utilities;
 using SmartphoneDSS.Exceptions;
 using SmartphoneDSS.Logic;
 using System;
@@ -18,6 +19,11 @@ namespace SmartphoneDSS
         public MainWindow()
         {
             InitializeComponent();
+            if (AccountManager.loginStatus == AccountManager.LoginStatus.LoggedAsAnon)
+            {
+                tresholdValuesTab.IsEnabled = false;
+                addingSmartphoneTab.IsEnabled = false;
+            }
         }
 
         /// <summary>
