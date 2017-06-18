@@ -19,7 +19,7 @@
                         <ColumnDefinition Width="90*"/>
                         <ColumnDefinition Width="455*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="findSmartphonesButton" Content="Znajdź smartfony" HorizontalAlignment="Left" Margin="266,380,0,0" VerticalAlignment="Top" Width="152" Grid.Column="2" Height="26" Click="findSmartphonesButton_Click"/>
+                    <Button x:Name="findSmartphonesButton" Content="Znajdź smartfony" HorizontalAlignment="Left" Margin="266,380,0,0" VerticalAlignment="Top" Width="152" Grid.Column="2" Height="26" Click="FindSmartphonesButton_Click"/>
                     <Label x:Name="label" Content="Intensywne używanie (h/tydzień)" HorizontalAlignment="Left" Margin="38,34,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <Label x:Name="label1" Content="Czytanie (h/tydzień)" HorizontalAlignment="Left" Margin="38,73,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <Label x:Name="label2" Content="Upadki urządzenia (ilość/miesiąca)" HorizontalAlignment="Left" Margin="38,117,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
@@ -76,7 +76,7 @@
                             <ColumnDefinition Width="90*"/>
                             <ColumnDefinition Width="454*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="addSmartphonesButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266.5,38,0,0" VerticalAlignment="Top" Width="152" Grid.Column="5" Height="26" Grid.Row="1" Click="addSmartphonesButton_Click"/>
+                        <Button x:Name="addSmartphonesButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266.5,38,0,0" VerticalAlignment="Top" Width="152" Grid.Column="5" Height="26" Grid.Row="1" Click="AddSmartphonesButton_Click"/>
                         <Label x:Name="label12" Content="RAM (GB)" HorizontalAlignment="Left" Margin="17,87,0,0" VerticalAlignment="Top" Grid.Column="2"/>
                         <Label x:Name="label13" Content="Pojemność baterii (mAh)" HorizontalAlignment="Left" Margin="17,132,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
                         <Label x:Name="label14" Content="Przekątna matrycy (cale)" HorizontalAlignment="Left" Margin="17,182,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
@@ -112,7 +112,45 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Zmiana wartości progowych" Name="tresholdValuesTab" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="168" Margin="-4,0,-110,0" RenderTransformOrigin="0.494,0.617">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Name="RAM_Text" Content="RAM (GB):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="20,0,0,0"/>
+                    <TextBox x:Name="RAM_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="0" Margin="0,0,20,0"/>
+                    <Label Name="Capacity_Text" Content="Pojemność baterii (MAh):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Capacity_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="1" Margin="0,0,20,0"/>
+                    <Label Name="Screen_Text" Content="Przekątna ekranu (cale):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Screen_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="2" Margin="0,0,20,0"/>
+                    <Label Name="Camera_Text" Content="Aparat (MPx):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="3" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Camera_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="3" Margin="0,0,20,0"/>
+                    <Label Name="Conversation_Text" Content="Maks. czas rozmowy (h/dzień):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Conversation_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="4" Margin="0,0,20,0"/>
+                    <Label Name="Memory_Text" Content="Pamięć wewn. (GB):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Memory_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Grid.Column="0" Grid.Row="5" Margin="0,0,20,0"/>
+                    <Label Name="Usage_Text" Content="Intensywność używania (h/tydzien):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Usage_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="0" Margin="0,0,20,0"/>
+                    <Label Name="Reading_Text" Content="Intensywność czytania (h/tydzien):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Reading_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="1" Margin="0,0,20,0"/>
+                    <Label Name="Falling_Text" Content="Częst. upadania tel. (liczba/miesiac):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Falling_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="2" Margin="0,0,20,0"/>
+                    <Label Name="Foto_Text" Content="Częst. wyk. zdjęć (liczba/miesiac):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Foto_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="3" Margin="0,0,20,0"/>
+                    <Label Name="Avg_Conversation_Text" Content="Sredni czas rozmów (h/tydzien):" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" Margin="20,0,0,0"/>
+                    <TextBox x:Name="Avg_Conversation_Box" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="4" Margin="0,0,20,0"/>
+                    <Button Name="SaveSettingsButton" Content="Zapisz" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="75" Grid.ColumnSpan="2" Click="SaveSettingsButton_Click"/>
+                    <!--<Button Name="RefreshButton" Content="Odswiez" HorizontalAlignment="Right" Grid.Row="6" VerticalAlignment="Center" Width="75" Grid.ColumnSpan="2" Click="RefreshButton_Click"/>-->
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

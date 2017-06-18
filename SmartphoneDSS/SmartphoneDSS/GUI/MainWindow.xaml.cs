@@ -24,6 +24,26 @@ namespace SmartphoneDSS
                 tresholdValuesTab.IsEnabled = false;
                 addingSmartphoneTab.IsEnabled = false;
             }
+            else
+            {
+                InitializeConfigurationPanel();
+            }
+        }
+
+        private void InitializeConfigurationPanel()
+        {
+            RAM_Box.Text = InputFormula.TRESHOLD_RAM.ToString();
+            Capacity_Box.Text = InputFormula.TRESHOLD_BATTERY_CAPACITY.ToString();
+            Screen_Box.Text = InputFormula.TRESHOLD_SCREEN_SIZE.ToString();
+            Camera_Box.Text = InputFormula.TRESHOLD_CAMERA.ToString();
+            Conversation_Box.Text = InputFormula.TRESHOLD_MAX_CONVERSATION_TIME.ToString();
+            Memory_Box.Text = InputFormula.TRESHOLD_INTERNAL_MEMORY.ToString();
+
+            Usage_Box.Text = OutputFormula.TRESHOLD_WEEKLY_TIME_INTENSIVE.ToString();
+            Reading_Box.Text = OutputFormula.TRESHOLD_WEEKLY_TIME_READING.ToString();
+            Falling_Box.Text = OutputFormula.TRESHOLD_MONTHLY_COUNT_FALL_DOWN.ToString();
+            Foto_Box.Text = OutputFormula.TRESHOLD_MONTHLY_COUNT_PICTURES.ToString();
+            Avg_Conversation_Box.Text = OutputFormula.TRESHOLD_DAILY_CONVERSATION_TIME.ToString();
         }
 
         /// <summary>
@@ -77,7 +97,7 @@ namespace SmartphoneDSS
             return outputFormulas;
         }
 
-        private void findSmartphonesButton_Click(object sender, RoutedEventArgs e)
+        private void FindSmartphonesButton_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrEmpty(intensiveUsageTextBox.Text) ||
                 String.IsNullOrEmpty(readingTextBox.Text) ||
@@ -105,7 +125,7 @@ namespace SmartphoneDSS
             }
         }
 
-        private Smartphone getSmartphoneFromInput()
+        private Smartphone GetSmartphoneFromInput()
         {
             Smartphone smartphone = new Smartphone();
 
@@ -140,14 +160,36 @@ namespace SmartphoneDSS
             }
         }
 
-        private void addSmartphonesButton_Click(object sender, RoutedEventArgs e)
+        private void AddSmartphonesButton_Click(object sender, RoutedEventArgs e)
         {
-            Smartphone s = getSmartphoneFromInput();
+            Smartphone s = GetSmartphoneFromInput();
             if (s != null)
             {
                 SmartphoneFileHandler.SaveSmartphone(s);
                 MessageBox.Show("Dodano smartfona do bazy!");
             }
         }
+
+        private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            InputFormula.TRESHOLD_RAM = float.Parse(RAM_Box.Text);
+            InputFormula.TRESHOLD_BATTERY_CAPACITY = int.Parse(Capacity_Box.Text);
+            InputFormula.TRESHOLD_SCREEN_SIZE = float.Parse(Screen_Box.Text);
+            InputFormula.TRESHOLD_CAMERA = float.Parse(Camera_Box.Text);
+            InputFormula.TRESHOLD_MAX_CONVERSATION_TIME = int.Parse(Conversation_Box.Text);
+            InputFormula.TRESHOLD_INTERNAL_MEMORY = int.Parse(Memory_Box.Text);
+
+            OutputFormula.TRESHOLD_WEEKLY_TIME_INTENSIVE = int.Parse(Usage_Box.Text);
+            OutputFormula.TRESHOLD_WEEKLY_TIME_READING = int.Parse(Reading_Box.Text);
+            OutputFormula.TRESHOLD_MONTHLY_COUNT_FALL_DOWN = int.Parse(Falling_Box.Text);
+            OutputFormula.TRESHOLD_MONTHLY_COUNT_PICTURES = int.Parse(Foto_Box.Text);
+            OutputFormula.TRESHOLD_DAILY_CONVERSATION_TIME = int.Parse(Avg_Conversation_Box.Text);
+        }
+        /*
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeConfigurationPanel();
+        }
+        */
     }
 }
