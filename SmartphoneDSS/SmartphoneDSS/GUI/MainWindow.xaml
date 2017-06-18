@@ -34,13 +34,13 @@
                     <Label x:Name="label7" HorizontalAlignment="Left" Margin="40,334,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
                         <CheckBox x:Name="asMP3PlayerUsing" Content="Używanie telefonu jako odtwarzacza MP3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     </Label>
-                    <TextBox x:Name="intensiveUsageTextBox" HorizontalAlignment="Left" Height="23" Margin="20,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2"/>
-                    <TextBox x:Name="readingTextBox" HorizontalAlignment="Left" Height="23" Margin="20,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2"/>
-                    <TextBox x:Name="fallingDownTextBox" HorizontalAlignment="Left" Height="23" Margin="20,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2"/>
-                    <TextBox x:Name="photosTextBox" HorizontalAlignment="Left" Height="23" Margin="20,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2"/>
-                    <TextBox x:Name="phoneConversationTextBox" HorizontalAlignment="Left" Height="23" Margin="20,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2"/>
+                    <TextBox x:Name="intensiveUsageTextBox" HorizontalAlignment="Left" Height="23" Margin="20,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="2"/>
+                    <TextBox x:Name="readingTextBox" HorizontalAlignment="Left" Height="23" Margin="20,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="10"/>
+                    <TextBox x:Name="fallingDownTextBox" HorizontalAlignment="Left" Height="23" Margin="20,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="1"/>
+                    <TextBox x:Name="photosTextBox" HorizontalAlignment="Left" Height="23" Margin="20,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="50"/>
+                    <TextBox x:Name="phoneConversationTextBox" HorizontalAlignment="Left" Height="23" Margin="20,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="4"/>
                     <Label x:Name="label8" Content="Maksymalna kwota (zł)" HorizontalAlignment="Left" Margin="40,380,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="184" FontWeight="Bold"/>
-                    <TextBox x:Name="maximumPriceTextBox" HorizontalAlignment="Left" Height="26" Margin="20,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2"/>
+                    <TextBox x:Name="maximumPriceTextBox" HorizontalAlignment="Left" Height="26" Margin="20,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="5000"/>
                     <ListBox x:Name="resultsList" Grid.Column="2" HorizontalAlignment="Left" Height="297" Margin="126,62,0,0" VerticalAlignment="Top" Width="292"/>
                     <Label x:Name="label9" Content="Rezultaty" Grid.Column="2" HorizontalAlignment="Left" Margin="126,36,0,0" VerticalAlignment="Top"/>
                 </Grid>

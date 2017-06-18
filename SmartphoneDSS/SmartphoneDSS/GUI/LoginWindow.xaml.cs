@@ -1,17 +1,4 @@
-﻿using SmartphoneDSS.Database.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using static SmartphoneDSS.Database.Utilities.AccountManager;
 
 namespace SmartphoneDSS.GUI
@@ -26,26 +13,26 @@ namespace SmartphoneDSS.GUI
             InitializeComponent();
         }
 
-        private void loginButton_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (loginTextBox.Text == AccountManager.ADMIN_LOGIN && passwordTextBox.Password == AccountManager.ADMIN_PASSWORD)
+            if (loginTextBox.Text == ADMIN_LOGIN && passwordTextBox.Password == ADMIN_PASSWORD)
             {
-                AccountManager.loginStatus = AccountManager.LoginStatus.LoggedAsAdmin;
+                loginStatus = LoginStatus.LoggedAsAdmin;
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                this.Hide();
+                Close();
             } else
             {
                 MessageBox.Show("Wprowadź poprawne dane logowania!");
             }
         }
 
-        private void enterAsAnonymousButton_Click(object sender, RoutedEventArgs e)
+        private void EnterAsAnonymousButton_Click(object sender, RoutedEventArgs e)
         {
-            AccountManager.loginStatus = AccountManager.LoginStatus.LoggedAsAnon;
+            loginStatus = LoginStatus.LoggedAsAnon;
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Hide();
+            Close();
         }
     }
 }
