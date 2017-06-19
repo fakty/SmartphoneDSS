@@ -4,58 +4,60 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Projekt SWD" Height="489.533" Width="689.149">
+        Title="Projekt SWD" Height="489.533" Width="864.349">
     <Grid Margin="0,0,-5,-18">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="142*"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="171*"/>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="689" Grid.ColumnSpan="3" Margin="0,0,-3,10">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="852" Grid.ColumnSpan="3" Margin="0,0,0,9.6" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Wybór smartfona">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="138*"/>
-                        <ColumnDefinition Width="90*"/>
-                        <ColumnDefinition Width="455*"/>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="67*"/>
+                        <ColumnDefinition Width="453*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="findSmartphonesButton" Content="Znajdź smartfony" HorizontalAlignment="Left" Margin="266,380,0,0" VerticalAlignment="Top" Width="152" Grid.Column="2" Height="26" Click="FindSmartphonesButton_Click"/>
-                    <Label x:Name="label" Content="Intensywne używanie (h/tydzień)" HorizontalAlignment="Left" Margin="38,34,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <Button x:Name="findSmartphonesButton" Content="Znajdź smartfony" HorizontalAlignment="Left" Margin="265.8,380,0,0" VerticalAlignment="Top" Width="152" Grid.Column="3" Height="26" Click="FindSmartphonesButton_Click"/>
+                    <Label x:Name="label" Content="Intensywne używanie (h/tydzień)" HorizontalAlignment="Left" Margin="38,34,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
                     <Label x:Name="label1" Content="Czytanie (h/tydzień)" HorizontalAlignment="Left" Margin="38,73,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <Label x:Name="label2" Content="Upadki urządzenia (ilość/miesiąca)" HorizontalAlignment="Left" Margin="38,117,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
-                    <Label x:Name="label3" Content="Robienie zdjęć (ilość/miesiąc)" HorizontalAlignment="Left" Margin="38,162,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <Label x:Name="label4" HorizontalAlignment="Left" Margin="40,294,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                    <Label x:Name="label2" Content="Upadki urządzenia (ilość/miesiąca)" HorizontalAlignment="Left" Margin="38,117,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4"/>
+                    <Label x:Name="label3" Content="Robienie zdjęć (ilość/miesiąc)" HorizontalAlignment="Left" Margin="38,162,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                    <Label x:Name="label4" HorizontalAlignment="Left" Margin="40,294,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
                         <CheckBox x:Name="onlineMoviesStreaming" Content="Oglądanie filmów online" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     </Label>
-                    <Label x:Name="label5" HorizontalAlignment="Left" Margin="40,251,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                    <Label x:Name="label5" HorizontalAlignment="Left" Margin="40,251,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
                         <CheckBox x:Name="onlineMusicStreaming" Content="Słuchanie muzyki online" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     </Label>
-                    <Label x:Name="label6" Content="Rozmawianie (h/dzień)" HorizontalAlignment="Left" Margin="38,207,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <Label x:Name="label7" HorizontalAlignment="Left" Margin="40,334,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
+                    <Label x:Name="label6" Content="Rozmawianie (h/dzień)" HorizontalAlignment="Left" Margin="38,207,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                    <Label x:Name="label7" HorizontalAlignment="Left" Margin="40,334,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4">
                         <CheckBox x:Name="asMP3PlayerUsing" Content="Używanie telefonu jako odtwarzacza MP3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     </Label>
-                    <TextBox x:Name="intensiveUsageTextBox" HorizontalAlignment="Left" Height="23" Margin="20,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="2"/>
-                    <TextBox x:Name="readingTextBox" HorizontalAlignment="Left" Height="23" Margin="20,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="10"/>
-                    <TextBox x:Name="fallingDownTextBox" HorizontalAlignment="Left" Height="23" Margin="20,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="1"/>
-                    <TextBox x:Name="photosTextBox" HorizontalAlignment="Left" Height="23" Margin="20,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="50"/>
-                    <TextBox x:Name="phoneConversationTextBox" HorizontalAlignment="Left" Height="23" Margin="20,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="4"/>
-                    <Label x:Name="label8" Content="Maksymalna kwota (zł)" HorizontalAlignment="Left" Margin="40,380,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="184" FontWeight="Bold"/>
-                    <TextBox x:Name="maximumPriceTextBox" HorizontalAlignment="Left" Height="26" Margin="20,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="2" Text="5000"/>
-                    <ListBox x:Name="resultsList" Grid.Column="2" HorizontalAlignment="Left" Height="297" Margin="126,62,0,0" VerticalAlignment="Top" Width="292"/>
-                    <Label x:Name="label9" Content="Rezultaty" Grid.Column="2" HorizontalAlignment="Left" Margin="126,36,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="intensiveUsageTextBox" HorizontalAlignment="Left" Height="23" Margin="19.8,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="3" Text="2"/>
+                    <TextBox x:Name="readingTextBox" HorizontalAlignment="Left" Height="23" Margin="19.8,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="3" Text="10"/>
+                    <TextBox x:Name="fallingDownTextBox" HorizontalAlignment="Left" Height="23" Margin="19.8,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="3" Text="1"/>
+                    <TextBox x:Name="photosTextBox" HorizontalAlignment="Left" Height="23" Margin="19.8,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="3" Text="50"/>
+                    <TextBox x:Name="phoneConversationTextBox" HorizontalAlignment="Left" Height="23" Margin="19.8,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="3" Text="4"/>
+                    <Label x:Name="label8" Content="Maksymalna kwota (zł)" HorizontalAlignment="Left" Margin="40,380,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="184" FontWeight="Bold"/>
+                    <TextBox x:Name="maximumPriceTextBox" HorizontalAlignment="Left" Height="26" Margin="19.8,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="3" Text="5000"/>
+                    <ListBox x:Name="resultsList" Grid.Column="3" HorizontalAlignment="Left" Height="297" Margin="125.8,62,0,0" VerticalAlignment="Top" Width="292"/>
+                    <Label x:Name="label9" Content="Rezultaty" Grid.Column="3" HorizontalAlignment="Left" Margin="125.8,36,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Zadanie analizy">
-                <Grid Background="#FFE5E5E5">
+            <TabItem x:Name="AnalisysTastTab" Header="Zadanie analizy">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-166,0.4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="62*"/>
-                        <ColumnDefinition Width="621*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="519*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="button" Content="Sprawdź dla kogo jest ten smartfon" HorizontalAlignment="Left" Margin="393,386,0,0" VerticalAlignment="Top" Width="203" Grid.Column="1"/>
                     <Label x:Name="label10" Content="Lista smartfonów" HorizontalAlignment="Left" Margin="42,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <Label x:Name="label11" Content="Użytkownicy" Grid.Column="1" HorizontalAlignment="Left" Margin="241,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.235,0.654"/>
-                    <ListBox x:Name="smartphones" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="2"/>
-                    <ListBox x:Name="results" Grid.Column="1" HorizontalAlignment="Left" Height="320" Margin="241,51,0,0" VerticalAlignment="Top" Width="355"/>
+                    <Label x:Name="label11" Content="Użytkownicy" Grid.Column="2" HorizontalAlignment="Left" Margin="91,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.235,0.654"/>
+                    <ListBox x:Name="smartphonesListBox" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="3" SelectionChanged="smartphones_SelectionChanged"/>
+                    <ListBox x:Name="UserTypesListBox" Grid.Column="2" HorizontalAlignment="Left" Height="320" Margin="91,51,0,0" VerticalAlignment="Top" Width="173" SelectionChanged="UserTypesListBox_SelectionChanged"/>
+                    <TextBlock x:Name="DescOfUserTxt" TextWrapping="WrapWithOverflow" Grid.Column="2" HorizontalAlignment="Left" Margin="284.6,51,0,0" Text="" VerticalAlignment="Top" Height="320" Width="323"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Dodawanie smartfona" Name="addingSmartphoneTab" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="134" Margin="-2.5,0,0,0">
@@ -76,7 +78,7 @@
                             <ColumnDefinition Width="90*"/>
                             <ColumnDefinition Width="454*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="addSmartphonesButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266.5,38,0,0" VerticalAlignment="Top" Width="152" Grid.Column="5" Height="26" Grid.Row="1" Click="AddSmartphonesButton_Click"/>
+                        <Button x:Name="addSmartphonesButton" Content="Dodaj" HorizontalAlignment="Left" Margin="266,28.8,0,0" VerticalAlignment="Top" Width="152" Grid.Column="5" Height="26" Grid.Row="1" Click="AddSmartphonesButton_Click"/>
                         <Label x:Name="label12" Content="RAM (GB)" HorizontalAlignment="Left" Margin="17,87,0,0" VerticalAlignment="Top" Grid.Column="2"/>
                         <Label x:Name="label13" Content="Pojemność baterii (mAh)" HorizontalAlignment="Left" Margin="17,132,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
                         <Label x:Name="label14" Content="Przekątna matrycy (cale)" HorizontalAlignment="Left" Margin="17,182,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="2"/>
@@ -98,10 +100,10 @@
                         <TextBox x:Name="internalMemoryTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5"/>
                         <Label x:Name="label20" Content="Cena (zł)" HorizontalAlignment="Left" Margin="154.5,284,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold" Grid.Column="5"/>
                         <TextBox x:Name="priceTextBox" HorizontalAlignment="Left" Height="26" Margin="328.5,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Grid.Column="5"/>
-                        <Label x:Name="label18_Copy" Content="Maksymalny czas konwersacji (h)" HorizontalAlignment="Left" Margin="17,336,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="2"/>
+                        <Label x:Name="label18_Copy" Content="Maksymalny czas konwersacji (h)" HorizontalAlignment="Left" Margin="16.8,336,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="2"/>
                         <TextBox x:Name="maxConversationTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="14.5,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Grid.Column="5" Grid.RowSpan="2"/>
-                        <Label x:Name="label20_Copy" Content="Nazwa" HorizontalAlignment="Left" Margin="19,34,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="2"/>
-                        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="26" Margin="81,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Grid.ColumnSpan="4" Grid.Column="2"/>
+                        <Label x:Name="label20_Copy" Content="Nazwa" HorizontalAlignment="Left" Margin="16.8,33,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Column="2"/>
+                        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="26" Margin="21.6,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Grid.ColumnSpan="3" Grid.Column="3"/>
                         <Label x:Name="label19_Copy" HorizontalAlignment="Left" Margin="152.5,183,0,0" VerticalAlignment="Top" Grid.Column="5">
                             <CheckBox x:Name="hasExternalSlot" Content="Slot na pamięć zewnętrzną" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </Label>

@@ -7,7 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SmartphoneDSS
 {
@@ -16,6 +18,9 @@ namespace SmartphoneDSS
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Smartphone> allPhones;
+        private List<List<OutputFormula>> outputFormulas;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -185,11 +190,63 @@ namespace SmartphoneDSS
             OutputFormula.TRESHOLD_MONTHLY_COUNT_PICTURES = int.Parse(Foto_Box.Text);
             OutputFormula.TRESHOLD_DAILY_CONVERSATION_TIME = int.Parse(Avg_Conversation_Box.Text);
         }
-        /*
-        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+
+        private void FindUsersForSmartphoneBtn_Click(object sender, RoutedEventArgs e)
         {
-            InitializeConfigurationPanel();
+            allPhones = SmartphoneFileHandler.GetSmartphones();
+            GetUserTypeFromChoosedSmartphone(new Smartphone());
         }
-        */
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AnalisysTastTab.IsSelected)
+            {
+                allPhones = SmartphoneFileHandler.GetSmartphones();
+                List<String> names = allPhones.Select(i => i.Name + " Cena: " + i.Price).ToList();
+                smartphonesListBox.ItemsSource = names;
+            }
+                
+        }
+
+        private void smartphones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Smartphone selectedSmartPhone = allPhones[smartphonesListBox.SelectedIndex];
+            outputFormulas = GetUserTypeFromChoosedSmartphone(selectedSmartPhone);
+            int nrOfUserTypes = outputFormulas.Count;
+            String[] UserTypes = new String[nrOfUserTypes];
+            for(int i = 0; i<nrOfUserTypes; i++)
+            {
+                UserTypes[i] = "Rodzaj użytkownika nr " + (i + 1);
+            }
+            UserTypesListBox.ItemsSource = UserTypes;
+        }
+
+        private void UserTypesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int SelectedUserType = UserTypesListBox.SelectedIndex;
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Telefon nadaje się dla użytkownika, który:\n");
+            List<OutputFormula> formula = outputFormulas[SelectedUserType];
+            for(int i = 0; i< formula.Count; i++)
+            {
+                if (i != 0)
+                {
+                    sb.Append("\noraz ");
+                }
+                if (!formula[i].Value)
+                {
+                    sb.Append("nie ");
+                }
+                sb.Append(formula[i].Name);
+            }
+            String description = sb.ToString();
+            DescOfUserTxt.Text = description;
+        }
+        /*
+private void RefreshButton_Click(object sender, RoutedEventArgs e)
+{
+InitializeConfigurationPanel();
+}
+*/
     }
 }

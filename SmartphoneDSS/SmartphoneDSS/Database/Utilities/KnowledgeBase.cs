@@ -22,14 +22,14 @@ namespace SmartphoneDSS.Database.Models
         public static readonly String alfa10 = "smartfon musi mieć slot na kartę SD";
 
         //Formuły wyjściowe
-        public static readonly String alfa11 = "osoba intensywnie używa telefonu więcej niż 15h tygodniowo";
-        public static readonly String alfa12 = "urządzenie upada częściej niż 4 razy w miesiącu";
-        public static readonly String alfa13 = "osoba robi zdjęcia więcej niż 100 razy w miesiącu";
-        public static readonly String alfa14 = "osoba chce oglądać filmy online";
-        public static readonly String alfa15 = "osoba chce słuchać muzyki online";
-        public static readonly String alfa16 = "osoba rozmawia co najmniej 5 godzin dziennie";
-        public static readonly String alfa17 = "osoba używa telefonu jako odtwarzacza MP3";
-        public static readonly String alfa18 = "osoba czyta na telefonie więcej niż 15h tygodniowo";
+        public static readonly String alfa11 = "używa intensywnie telefonu więcej niż 15h tygodniowo";
+        public static readonly String alfa12 = "upuszcza urządzenia częściej niż 4 razy w miesiącu";
+        public static readonly String alfa13 = "robi zdjęcia więcej niż 100 razy w miesiącu";
+        public static readonly String alfa14 = "chce oglądać filmy online";
+        public static readonly String alfa15 = "chce słuchać muzyki online";
+        public static readonly String alfa16 = "rozmawia co najmniej 5 godzin dziennie";
+        public static readonly String alfa17 = "używa telefonu jako odtwarzacza MP3";
+        public static readonly String alfa18 = "czyta na telefonie więcej niż 15h tygodniowo";
 
 
         private readonly List<Formula> Formulas = new List<Formula>(FORMULAS_COUNT){
