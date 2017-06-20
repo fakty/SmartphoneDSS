@@ -1,4 +1,4 @@
-﻿<Window x:Class="SmartphoneDSS.MainWindow"
+﻿<Window x:Class="SmartphoneDSS.GUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -55,7 +55,7 @@
                     </Grid.ColumnDefinitions>
                     <Label x:Name="label10" Content="Lista smartfonów" HorizontalAlignment="Left" Margin="42,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <Label x:Name="label11" Content="Użytkownicy" Grid.Column="2" HorizontalAlignment="Left" Margin="91,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.235,0.654"/>
-                    <ListBox x:Name="smartphonesListBox" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="3" SelectionChanged="smartphones_SelectionChanged"/>
+                    <ListBox x:Name="smartphonesListBox" HorizontalAlignment="Left" Height="320" Margin="42,51,0,0" VerticalAlignment="Top" Width="226" Grid.ColumnSpan="3" SelectionChanged="Smartphones_SelectionChanged"/>
                     <ListBox x:Name="UserTypesListBox" Grid.Column="2" HorizontalAlignment="Left" Height="320" Margin="91,51,0,0" VerticalAlignment="Top" Width="173" SelectionChanged="UserTypesListBox_SelectionChanged"/>
                     <TextBlock x:Name="DescOfUserTxt" TextWrapping="WrapWithOverflow" Grid.Column="2" HorizontalAlignment="Left" Margin="284.6,51,0,0" Text="" VerticalAlignment="Top" Height="320" Width="323"/>
                 </Grid>
