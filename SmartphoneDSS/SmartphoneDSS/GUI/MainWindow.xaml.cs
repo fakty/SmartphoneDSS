@@ -11,7 +11,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace SmartphoneDSS
+namespace SmartphoneDSS.GUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -208,7 +208,7 @@ namespace SmartphoneDSS
                 
         }
 
-        private void smartphones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void Smartphones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Smartphone selectedSmartPhone = allPhones[smartphonesListBox.SelectedIndex];
             outputFormulas = GetUserTypeFromChoosedSmartphone(selectedSmartPhone);
