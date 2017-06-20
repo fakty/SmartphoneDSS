@@ -226,6 +226,8 @@ namespace SmartphoneDSS
             int SelectedUserType = UserTypesListBox.SelectedIndex;
             StringBuilder sb = new StringBuilder();
             sb.Append("Telefon nadaje się dla użytkownika, który:\n");
+            if (SelectedUserType == -1)
+                SelectedUserType = 0;
             List<OutputFormula> formula = outputFormulas[SelectedUserType];
             for(int i = 0; i< formula.Count; i++)
             {
